@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7115FFC42BE8A1E500AA599B /* CinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFC32BE8A1E500AA599B /* CinemaViewController.swift */; };
+		7115FFC62BE8A26D00AA599B /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFC52BE8A26D00AA599B /* TicketViewController.swift */; };
+		7115FFC82BE8A36800AA599B /* SeatSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFC72BE8A36800AA599B /* SeatSelectionViewController.swift */; };
+		7115FFCA2BE8A42100AA599B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFC92BE8A42100AA599B /* MovieViewController.swift */; };
+		7115FFCC2BE8A49700AA599B /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFCB2BE8A49700AA599B /* BookingViewController.swift */; };
+		7115FFCE2BE8A6CC00AA599B /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFCD2BE8A6CC00AA599B /* ConfirmViewController.swift */; };
+		7115FFD02BE8AB7300AA599B /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115FFCF2BE8AB7300AA599B /* Cinema.swift */; };
 		712E8F5B2BDF1C1C00657864 /* CinemaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712E8F5A2BDF1C1C00657864 /* CinemaApp.swift */; };
 		712E8F5F2BDF1C1E00657864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712E8F5E2BDF1C1E00657864 /* Assets.xcassets */; };
 		712E8F622BDF1C1E00657864 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712E8F612BDF1C1E00657864 /* Preview Assets.xcassets */; };
@@ -18,12 +25,8 @@
 		719565282BDF233700FB65AA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719565272BDF233700FB65AA /* Movie.swift */; };
 		7195652C2BDF24B200FB65AA /* TicketCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195652B2BDF24B200FB65AA /* TicketCard.swift */; };
 		7195652E2BDF2E7100FB65AA /* ScrollSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195652D2BDF2E7100FB65AA /* ScrollSection.swift */; };
-		719565302BDF319900FB65AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195652F2BDF319900FB65AA /* HomeView.swift */; };
+		719565302BDF319900FB65AA /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195652F2BDF319900FB65AA /* MovieView.swift */; };
 		719565322BDF339B00FB65AA /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719565312BDF339B00FB65AA /* SearchBar.swift */; };
-		71A715A62BDF36CE00AD21AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715A52BDF36CE00AD21AB /* ContentView.swift */; };
-		71A715AA2BDF38F900AD21AB /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715A92BDF38F900AD21AB /* Tab.swift */; };
-		71A715AC2BDF3ADF00AD21AB /* CustomMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715AB2BDF3ADF00AD21AB /* CustomMenuBar.swift */; };
-		71A715AE2BDF401900AD21AB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715AD2BDF401900AD21AB /* SearchView.swift */; };
 		71A715B12BDF411D00AD21AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715B02BDF411D00AD21AB /* User.swift */; };
 		71A715B32BDF431700AD21AB /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715B22BDF431700AD21AB /* Ticket.swift */; };
 		71A715B52BDF4B5100AD21AB /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A715B42BDF4B5100AD21AB /* BookingView.swift */; };
@@ -52,6 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7115FFC32BE8A1E500AA599B /* CinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaViewController.swift; sourceTree = "<group>"; };
+		7115FFC52BE8A26D00AA599B /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		7115FFC72BE8A36800AA599B /* SeatSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionViewController.swift; sourceTree = "<group>"; };
+		7115FFC92BE8A42100AA599B /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		7115FFCB2BE8A49700AA599B /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		7115FFCD2BE8A6CC00AA599B /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		7115FFCF2BE8AB7300AA599B /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		712E8F572BDF1C1C00657864 /* Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712E8F5A2BDF1C1C00657864 /* CinemaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaApp.swift; sourceTree = "<group>"; };
 		712E8F5E2BDF1C1E00657864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,12 +76,8 @@
 		719565272BDF233700FB65AA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		7195652B2BDF24B200FB65AA /* TicketCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCard.swift; sourceTree = "<group>"; };
 		7195652D2BDF2E7100FB65AA /* ScrollSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollSection.swift; sourceTree = "<group>"; };
-		7195652F2BDF319900FB65AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7195652F2BDF319900FB65AA /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		719565312BDF339B00FB65AA /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		71A715A52BDF36CE00AD21AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		71A715A92BDF38F900AD21AB /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
-		71A715AB2BDF3ADF00AD21AB /* CustomMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBar.swift; sourceTree = "<group>"; };
-		71A715AD2BDF401900AD21AB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		71A715B02BDF411D00AD21AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		71A715B22BDF431700AD21AB /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		71A715B42BDF4B5100AD21AB /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
@@ -170,14 +176,11 @@
 			children = (
 				71A715AF2BDF40DE00AD21AB /* UIComponents */,
 				712E8F852BDF1C5000657864 /* TicketView.swift */,
-				7195652F2BDF319900FB65AA /* HomeView.swift */,
+				7195652F2BDF319900FB65AA /* MovieView.swift */,
 				71A715BF2BDF7C5700AD21AB /* CinemaView.swift */,
-				71A715A52BDF36CE00AD21AB /* ContentView.swift */,
-				71A715AD2BDF401900AD21AB /* SearchView.swift */,
 				71A715B42BDF4B5100AD21AB /* BookingView.swift */,
 				71A715B62BDF5FA200AD21AB /* SeatSelectionView.swift */,
 				71A715BC2BDF6DDD00AD21AB /* ConfirmBookingView.swift */,
-				71A715B82BDF685500AD21AB /* ChairView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,10 +189,10 @@
 			isa = PBXGroup;
 			children = (
 				719565272BDF233700FB65AA /* Movie.swift */,
-				71A715A92BDF38F900AD21AB /* Tab.swift */,
 				71A715B02BDF411D00AD21AB /* User.swift */,
 				71A715B22BDF431700AD21AB /* Ticket.swift */,
 				71A715BA2BDF687800AD21AB /* Seat.swift */,
+				7115FFCF2BE8AB7300AA599B /* Cinema.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,7 +203,7 @@
 				7195652B2BDF24B200FB65AA /* TicketCard.swift */,
 				7195652D2BDF2E7100FB65AA /* ScrollSection.swift */,
 				719565312BDF339B00FB65AA /* SearchBar.swift */,
-				71A715AB2BDF3ADF00AD21AB /* CustomMenuBar.swift */,
+				71A715B82BDF685500AD21AB /* ChairView.swift */,
 				712E8F872BDF1F4500657864 /* CircleBackground.swift */,
 			);
 			path = UIComponents;
@@ -209,6 +212,12 @@
 		71A715BE2BDF73E600AD21AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7115FFC32BE8A1E500AA599B /* CinemaViewController.swift */,
+				7115FFCD2BE8A6CC00AA599B /* ConfirmViewController.swift */,
+				7115FFCB2BE8A49700AA599B /* BookingViewController.swift */,
+				7115FFC92BE8A42100AA599B /* MovieViewController.swift */,
+				7115FFC52BE8A26D00AA599B /* TicketViewController.swift */,
+				7115FFC72BE8A36800AA599B /* SeatSelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -343,25 +352,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				719565302BDF319900FB65AA /* HomeView.swift in Sources */,
+				7115FFD02BE8AB7300AA599B /* Cinema.swift in Sources */,
+				719565302BDF319900FB65AA /* MovieView.swift in Sources */,
 				712E8F862BDF1C5000657864 /* TicketView.swift in Sources */,
 				7195652E2BDF2E7100FB65AA /* ScrollSection.swift in Sources */,
 				71A715BD2BDF6DDD00AD21AB /* ConfirmBookingView.swift in Sources */,
 				712E8F5B2BDF1C1C00657864 /* CinemaApp.swift in Sources */,
 				712E8F882BDF1F4500657864 /* CircleBackground.swift in Sources */,
-				71A715AA2BDF38F900AD21AB /* Tab.swift in Sources */,
 				719565282BDF233700FB65AA /* Movie.swift in Sources */,
 				71A715B12BDF411D00AD21AB /* User.swift in Sources */,
+				7115FFC62BE8A26D00AA599B /* TicketViewController.swift in Sources */,
 				71A715B92BDF685500AD21AB /* ChairView.swift in Sources */,
 				719565322BDF339B00FB65AA /* SearchBar.swift in Sources */,
-				71A715AC2BDF3ADF00AD21AB /* CustomMenuBar.swift in Sources */,
+				7115FFCE2BE8A6CC00AA599B /* ConfirmViewController.swift in Sources */,
+				7115FFCA2BE8A42100AA599B /* MovieViewController.swift in Sources */,
 				71A715B32BDF431700AD21AB /* Ticket.swift in Sources */,
-				71A715AE2BDF401900AD21AB /* SearchView.swift in Sources */,
 				71A715B72BDF5FA200AD21AB /* SeatSelectionView.swift in Sources */,
 				71A715C02BDF7C5700AD21AB /* CinemaView.swift in Sources */,
-				71A715A62BDF36CE00AD21AB /* ContentView.swift in Sources */,
+				7115FFC42BE8A1E500AA599B /* CinemaViewController.swift in Sources */,
 				7195652C2BDF24B200FB65AA /* TicketCard.swift in Sources */,
 				71A715BB2BDF687800AD21AB /* Seat.swift in Sources */,
+				7115FFC82BE8A36800AA599B /* SeatSelectionViewController.swift in Sources */,
+				7115FFCC2BE8A49700AA599B /* BookingViewController.swift in Sources */,
 				71A715B52BDF4B5100AD21AB /* BookingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

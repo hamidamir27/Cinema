@@ -95,11 +95,10 @@ struct ConfirmBookingView: View {
                 .background(.gray.opacity(0.7))
                 .cornerRadius(4.0)
                 .frame(maxWidth: 250)
-                Button(action: {print("Confirmed")}, label: {
-                    Text("Confirm")
-                })
-                .fontWeight(.bold)
-                .buttonStyle(.borderedProminent)
+                
+                NavigationLink(destination: CinemaView()) { //Save ticket to user array
+                                Text("Confirm")
+                            }.buttonStyle(BorderedProminentButtonStyle())
             }
             
             .padding(.horizontal, 20)

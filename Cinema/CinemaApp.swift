@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct CinemaApp: App {
+    
+    init() {
+//        UINavigationBar.appearance().barTintColor = .systemRed
+    }
+    
     var body: some Scene {
         WindowGroup {
             CinemaView()

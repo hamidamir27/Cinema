@@ -12,59 +12,63 @@ struct TicketCard: View {
     @State var ticket : Ticket
     
     var body: some View {
-        VStack(spacing: 0.0){
-            VStack(spacing: 2.0){
-                Image(ticket.movie.image)
-                    .resizable()
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                
-            }
-            .frame(width: 250, height:225, alignment: .top)
-            .foregroundColor(.white)
-            .shadow(radius: 10)
-            .cornerRadius(10)
-        }
-        VStack{
-            Text(ticket.movie.title)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            Text(ticket.movie.subtitle)
-
-            Image("barcode")
+        
+        VStack(){
+            Image(ticket.movie.image)
                 .resizable()
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                .frame(maxWidth: 250, maxHeight: 150)
-                .cornerRadius(10.0)
-                .padding()
-    
-            HStack{
-                Text("Cinema")
+                .frame(width: 250, height:225, alignment: .top)
+                .cornerRadius(10)
+            
+            VStack{
+                Text(ticket.movie.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Spacer()
-                Text(ticket.cinema)
-                    
+                Text(ticket.movie.subtitle)
+                    .font(.subheadline)
+                Image("barcode")
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: 250, maxHeight: 150)
+                    .cornerRadius(10.0)
+                
             }
-            HStack{
-                Text("Date")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Spacer()
-                Text(ticket.time)
+            .padding()
+            .background(Color.gray.opacity(0.7))
+            .cornerRadius(4)
+            
+            .foregroundColor(.white)
+            VStack{
+                HStack{
+                    Text("Cinema")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                    Text(ticket.cinema)
                     
-            }
-            HStack{
-                Text("Time")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Spacer()
-                Text(ticket.date)
+                }
+                HStack{
+                    Text("Date")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                    Text(ticket.time)
                     
+                }
+                HStack{
+                    Text("Time")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Spacer()
+                    Text(ticket.date)
+                    
+                }
             }
+            .padding()
+            .foregroundColor(.white)
+            .font(.footnote)
+            .foregroundColor(.white)
+            .background(.gray.opacity(0.7))
+            .cornerRadius(4.0)
         }
-        .padding()
-        .foregroundColor(.white)
-        .font(.footnote)
-        .shadow(radius: 10)
-        .background(.gray.opacity(0.7))
-        .cornerRadius(4.0)
-        .frame(maxWidth: 250)
+        .frame(width: 250)
+        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }
 }
 

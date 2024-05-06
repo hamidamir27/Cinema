@@ -12,6 +12,7 @@ struct Ticket{
     var date : String
     var time : String
     var cinema : String
-    var seat : String
+    var seat: String // Should be var seat : [Seat]
+    
     var movie : Movie
 }

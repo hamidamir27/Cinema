@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct MovieView: View {
     
     @State var animateBool : Bool = true
     @State var cinema : String
+    @State private var searchText = ""
+    @StateObject var viewController = MovieViewController()
+    
     
     var body: some View {
         ZStack {
@@ -39,15 +42,15 @@ struct HomeView: View {
                         .foregroundColor(.white)
                 }
                 
-                SearchBar()
+                SearchBar(searchText: $searchText)
                     .padding(EdgeInsets(top: 30, leading: 20, bottom: 20, trailing: 20))
                 
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        ScrollSection(title: "Now Playing")
-                        ScrollSection(title: "Vintage Movies")
-                        ScrollSection(title: "Local Favourites")
+                        ScrollSection(title: "New Releases", movies: viewController.newReleases) // Pass an array of movies from the cinema object to here
+                        ScrollSection(title: "Vintage Movies", movies: viewController.vintageMovies) // Pass an array of movies from the cinema object to here
+                        ScrollSection(title: "Local Favourites", movies: viewController.mostPopular) // Pass an array of movies from the cinema object to here
                     }
                     .padding(.bottom, 90)
                 }
@@ -66,5 +69,5 @@ struct HomeView: View {
 
 
 #Preview {
-    HomeView(cinema: "Ultimo")
+    MovieView(cinema: "Ultimo")
 }

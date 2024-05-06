@@ -10,7 +10,43 @@ import SwiftUI
 struct ScrollSection: View {
     
     @State var title = ""
-    let movies: [Movie] = [
+    var movies : [Movie]
+    @State var maxHeight : CGFloat = 180
+    @State var maxWidth : CGFloat = 130
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(.headline)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack(spacing: 20.0){
+                    ForEach(movies) { movie in
+                        NavigationLink (destination: BookingView(movie: movie)) {
+                            Image(movie.image)
+                                .resizable()
+                                .frame(width: maxWidth, height: maxHeight)
+                                .cornerRadius(20)
+                                .aspectRatio(contentMode: .fill)
+                        }
+                        
+                    }
+                }
+                .offset(x: 20)
+                .padding(.trailing, 40)
+                .padding(.top, 10)
+                
+            }
+        }
+    }
+}
+
+#Preview {
+    ScrollSection(movies: [
         Movie(
             image: "kungfupanda",
             title: "Kung Fu Panda",
@@ -60,38 +96,5 @@ struct ScrollSection: View {
             showTimes: ["2024-05-06": ["10:00 AM", "1:00 PM", "4:00 PM"]]
         )
     ]
-    @State var maxHeight : CGFloat = 180
-    @State var maxWidth : CGFloat = 130
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-            
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 20.0){
-                    ForEach(movies, id: \.id){ movie in
-                        NavigationLink (destination: BookingView(movie: movie)) {
-                            Image(movie.image)
-                                .resizable()
-                                .frame(width: maxWidth, height: maxHeight)
-                                .cornerRadius(20)
-                                .aspectRatio(contentMode: .fill)
-                        }
-                        
-                    }
-                }
-                .offset(x: 20)
-                .padding(.trailing, 40)
-                .padding(.top, 10)
-                
-            }
-        }
-    }
-}
-
-#Preview {
-    ScrollSection()
+    )
 }

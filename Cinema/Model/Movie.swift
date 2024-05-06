@@ -22,7 +22,7 @@ let movies: [Movie] = [
         image: "kungfupanda",
         title: "Kung Fu Panda",
         subtitle: "A clumsy panda learns martial arts.",
-        showTimes: ["2024-04-29": ["12:00 PM", "3:00 PM", "6:00 PM"]]
+        showTimes: ["2024-04-29": ["12:00 PM", "3:00 PM", "6:00 PM"], "2024-04-30": ["3:00pm", "5:00pm"]]
     ),
     Movie(
         image: "Godzilla",
