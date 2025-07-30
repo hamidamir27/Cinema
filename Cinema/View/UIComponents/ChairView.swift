@@ -1,48 +1,49 @@
-//
-//  ChairView.swift
-//  Cinema
-//
-//  Created by Felix Lush on 29/4/2024.
-//
-
 import SwiftUI
+
 struct ChairView: View {
-    
+    var seat: Seat
     var width: CGFloat = 50
-    var accentColor: Color = .blue
-    var seat = Seat.default
-    @State private var isSelected = false
     var isSelectable = true
     var onSelect: ((Seat)->()) = {_ in }
     var onDeselect: ((Seat)->()) = {_ in }
-    
-    
+
     var body: some View {
         VStack(spacing: 2) {
             Rectangle()
-                .frame(width: self.width, height: self.width * 2/3)
-                .foregroundColor(isSelectable ? isSelected ? accentColor : Color.gray.opacity(0.5) : accentColor)
-            .cornerRadius(width / 5)
+                .frame(width: width, height: width * 2/3)
+                .foregroundColor(colorForSeat())
+                .cornerRadius(width / 5)
             
             Rectangle()
                 .frame(width: width - 10, height: width / 5)
-                .foregroundColor(isSelectable ? isSelected ? accentColor :  Color.gray.opacity(0.5) : accentColor)
+                .foregroundColor(colorForSeat())
                 .cornerRadius(width / 5)
         }
         .onTapGesture {
-            if self.isSelectable{
-                self.isSelected.toggle()
-                if self.isSelected{
-                    self.onSelect(self.seat)
+            if isSelectable && !seat.isOccupied {
+                if seat.isSelected {
+                    onDeselect(seat)
                 } else {
-                    self.onDeselect(self.seat)
+                    onSelect(seat)
                 }
             }
         }
     }
+
+    private func colorForSeat() -> Color {
+        if seat.isOccupied {
+            return Color.red  // Red if the seat is occupied
+        } else if seat.isSelected {
+            return Color.blue  // Blue if the seat is selected
+        } else {
+            return Color.gray.opacity(0.5)  // Gray if the seat is available
+        }
+    }
 }
+
+// Preview configuration
 struct ChairView_Previews: PreviewProvider {
     static var previews: some View {
-        ChairView()
+        ChairView(seat: Seat(id: "1", isOccupied: false))
     }
 }

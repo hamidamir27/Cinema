@@ -17,6 +17,7 @@ struct CinemaApp: App {
     var body: some Scene {
         WindowGroup {
             CinemaView()
+                .environmentObject(TicketViewController())
         }
     }
 }

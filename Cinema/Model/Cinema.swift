@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Cinema {
+struct Cinema : Hashable, Identifiable {
     var id = UUID()
-    var movies: [Movie]
-    
+    var movies : [Movie]
+    var name : String
 }

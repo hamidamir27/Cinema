@@ -9,15 +9,8 @@ import SwiftUI
 
 struct TicketView: View {
     @State var animateBool = true
-    
-    var tickets = [Ticket(date: "04/04/2024", time: "12:30", cinema: "1", seat: "5D", movie: Movie(image: "challengers", title: "Challengers", subtitle: "Tashi, once a tennis player herself, has taken her husband, Art, and transformed him from an average player to a globally renowned Grand Slam champion", showTimes: [
-        "2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"],
-        "2024-04-30": ["12:00 PM", "3:00 PM", "6:00 PM", "9:00 PM"]
-    ])), Ticket(date: "08/04/2024", time: "2:30", cinema: "1", seat: "5D", movie: Movie(image: "ghostbusters", title: "Ghost Busters", subtitle: "Ghost hunters tackle supernatural threats.", showTimes: [
-        "2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"],
-        "2024-04-30": ["12:00 PM", "3:00 PM", "6:00 PM", "9:00 PM"]
-    ]))]
-//    var tickets: [Ticket] = []
+
+    @ObservedObject var ticketController: TicketViewController
     
     var body: some View {
         ZStack {
@@ -45,7 +38,7 @@ struct TicketView: View {
                     .font(.body)
                     .foregroundColor(.white)
                 
-                if tickets.isEmpty{
+                if ticketController.tickets.isEmpty{
                     VStack{
                         Text("You have no avaliable tickets")
                         Spacer()
@@ -57,7 +50,7 @@ struct TicketView: View {
                 }
                 else{
                     TabView {
-                        ForEach(tickets, id: \.id) { ticket in
+                        ForEach(ticketController.tickets, id: \.id) { ticket in
                             TicketCard(ticket: ticket)
                                 .frame(width: UIScreen.main.bounds.width, height: 300)
                                 .padding()
@@ -79,6 +72,11 @@ struct TicketView: View {
     }
 }
 
-#Preview {
-    TicketView()
+struct TicketView_Previews: PreviewProvider {
+    static var previews: some View {
+        let ticketController = TicketViewController()
+        // Optionally add some dummy tickets for better preview
+        ticketController.addTicketToWallet(ticket: Ticket(time: "12:30", cinema: "1", seat: [Seat(id: "5D", isOccupied: true)], movie: Movie(image: "challengers", title: "Challengers", subtitle: "A thrilling adventure", showTimes: ["2024-04-29": ["10:00 AM"]], category: ["New Release"], seats: [])))
+        return TicketView(ticketController: ticketController)
+    }
 }

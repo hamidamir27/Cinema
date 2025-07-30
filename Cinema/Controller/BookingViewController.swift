@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct BookingViewController{
+class BookingViewController : ObservableObject{
     
-    // Display the times from the movie object 
-    var movie : Movie
+    @Published var movie: Movie
+    @Published var timesByDate: [String: [String]] = [:]
+
+
+    init(movie: Movie) {
+        self.movie = movie
+        self.timesByDate = movie.showTimes
+    }
     
-    //Display the
     
 }

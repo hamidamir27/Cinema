@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct Seat: Identifiable {
-    var id: UUID
-    var row: Int
-    var number: Int
+struct Seat: Identifiable, Hashable {
+    let id: String
     var isOccupied: Bool
-    static var `default`: Seat { Seat(id: UUID(), row: 0, number: 0, isOccupied: false) }
+    var isSelected: Bool = false
+
+    static var `default`: Seat {
+        return Seat(id: "DefaultID", isOccupied: false)
+    }
 }

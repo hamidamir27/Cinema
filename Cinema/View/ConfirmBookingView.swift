@@ -9,11 +9,18 @@ import SwiftUI
 
 struct ConfirmBookingView: View {
     
-    @State var ticket = Ticket(date: "04/04/2024", time: "12:30", cinema: "4", seat: "5D", movie: Movie(image: "challengers", title: "Challengers", subtitle: "Tashi, once a tennis player herself, has taken her husband, Art, and transformed him from an average player to a globally renowned Grand Slam champion", showTimes: [
-        "2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"],
-        "2024-04-30": ["12:00 PM", "3:00 PM", "6:00 PM", "9:00 PM"]
-    ]))
+    @Environment(\.presentationMode) var presentationMode
+//    @State var ticket = Ticket(time: "12:30", cinema: "4", seat: Seat(id: "A1", isOccupied: true), movie: Movie(image: "challengers", title: "Challengers", subtitle: "Tashi, once a tennis player herself, has taken her husband, Art, and transformed him from an average player to a globally renowned Grand Slam champion", showTimes: [
+//        "2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"],
+//        "2024-04-30": ["12:00 PM", "3:00 PM", "6:00 PM", "9:00 PM"]], category: ["New Release", "Most Popular"], seats:  (1...30).map { Seat(id: "Seat \($0)", isOccupied: $0 % 3 == 0) }
+//    ))
     @State var animateBool : Bool = false
+    @ObservedObject var viewController = ConfirmViewController()
+    var movie: Movie
+    var selectedTime: String
+    var selectedCinema: String
+    var selectedSeat: [Seat]
+    @EnvironmentObject var ticketController: TicketViewController
     
     var body: some View {
         ZStack {
@@ -45,7 +52,7 @@ struct ConfirmBookingView: View {
                 .padding()
                 
                 VStack(spacing: 2.0){
-                    Image(ticket.movie.image)
+                    Image(movie.image)
                         .resizable()
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     
@@ -56,37 +63,37 @@ struct ConfirmBookingView: View {
                 .cornerRadius(10)
                 
                 VStack{
-                    Text(ticket.movie.title)
+                    Text(movie.title)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    Text(ticket.movie.subtitle)
+                    Text(movie.subtitle)
                     HStack{
                         Text("Cinema")
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         Spacer()
-                        Text(ticket.cinema)
+                        Text(selectedCinema)
                             
                     }
                     HStack{
                         Text("Seat")
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.bold)
                         Spacer()
-                        Text(ticket.seat)
-                            
-                    }
-                    HStack{
-                        Text("Date")
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Spacer()
-                        Text(ticket.time)
+                        // Convert the array of seats to a string and display it
+                        Text(selectedSeat.map { $0.id }.joined(separator: ", "))
                             
                     }
                     HStack{
                         Text("Time")
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         Spacer()
-                        Text(ticket.date)
+                        Text(selectedTime)
                             
                     }
+//                    HStack{
+//                        Text("Time")
+//                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                        Spacer()
+//                        Text(selectedDate)
+//                    }
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -96,9 +103,12 @@ struct ConfirmBookingView: View {
                 .cornerRadius(4.0)
                 .frame(maxWidth: 250)
                 
-                NavigationLink(destination: CinemaView()) { //Save ticket to user array
-                                Text("Confirm")
-                            }.buttonStyle(BorderedProminentButtonStyle())
+                Button("Confirm Ticket") {
+                    let newTicket = Ticket(time: selectedTime, cinema: selectedCinema, seat: selectedSeat, movie: movie)
+                    ticketController.addTicketToWallet(ticket: newTicket)
+                    // Optionally navigate away or show confirmation
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
             
             .padding(.horizontal, 20)
@@ -113,5 +123,7 @@ struct ConfirmBookingView: View {
 
 
 #Preview {
-    ConfirmBookingView()
+    ConfirmBookingView(viewController: ConfirmViewController(), movie: Movie(image: "challengers", title: "Challengers", subtitle: "Tashi, once a tennis player herself, has taken her husband, Art, and transformed him from an average player to a globally renowned Grand Slam champion", showTimes: [
+        "2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"],
+        "2024-04-30": ["12:00 PM", "3:00 PM", "6:00 PM", "9:00 PM"]], category: ["New Release", "Most Popular"], seats:  (1...30).map { Seat(id: "Seat \($0)", isOccupied: $0 % 3 == 0) }), selectedTime: "12:00 PM", selectedCinema: "Cinema 4", selectedSeat: [Seat(id: "A1", isOccupied: true)])
 }

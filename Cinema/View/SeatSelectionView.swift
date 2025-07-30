@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SeatSelectionView: View {
-    @State var selectedTime : String?
-    @State private var seats: [Seat] = Array(repeating: Seat.default, count: 30)
+    var selectedTime: String
+    @ObservedObject var viewController = SeatSelectionViewController()
+    var movie : Movie
+    var selectedCinema : String
     
     var body: some View {
         VStack(spacing: 0.0){
@@ -24,25 +26,25 @@ struct SeatSelectionView: View {
             .padding(.horizontal, 20)
             
             //Seat grid
-            let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 5)
-            ScrollView (showsIndicators: true){
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(seats.indices, id:\.self) { index in
+            ScrollView(showsIndicators: true) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 5), spacing: 20) {
+                    ForEach(viewController.seats.indices, id: \.self) { index in
                         ChairView(
-                            seat: seats[index],
-                            onSelect: { seat in
-                                seats[index].isOccupied = true
+                            seat: viewController.seats[index],
+                            onSelect: { selectedSeat in
+                                viewController.selectSeat(at: index)
                             },
-                            onDeselect: { seat in
-                                seats[index].isOccupied = false
+                            onDeselect: { deselectedSeat in
+                                viewController.selectSeat(at: index)  // Assuming toggle behavior in selectSeat
                             }
                         )
+                        .padding()
                     }
-                    .padding()
                 }
                 .frame(maxWidth: 280)
-            .padding()
+                .padding()
             }
+            Text("Selected Time: \(selectedTime)")
             
             HStack{
                 HStack{
@@ -71,11 +73,37 @@ struct SeatSelectionView: View {
                 }
             }
         }
-        .navigationBarItems(trailing: NavigationLink("Next", destination: ConfirmBookingView()))
+        .navigationBarItems(trailing: NavigationLink("Next", destination: ConfirmBookingView(movie: movie, selectedTime: selectedTime, selectedCinema: selectedCinema, selectedSeat: viewController.selectedSeats)))
         
     }
 }
 
-#Preview {
-    SeatSelectionView()
+struct SeatSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        let exampleMovie = Movie(
+            image: "exampleImage",
+            title: "Example Movie",
+            subtitle: "An example movie subtitle",
+            showTimes: ["2024-04-29": ["10:00 AM", "1:00 PM", "4:00 PM"]],
+            category: ["New Release"],
+            seats: (1...30).map { Seat(id: "\($0)", isOccupied: $0 % 5 == 0) }  // Every fifth seat is occupied
+        )
+
+        // Example seats controller
+        let seatsController = SeatSelectionViewController(seats: exampleMovie.seats)
+        // Assume selectedTime, selectedDate, and selectedCinema are hard-coded for simplicity
+        let selectedTime = "12:00 PM"
+        let selectedCinema = "Cinema 1"
+
+        // Create the ticket controller (if needed)
+
+
+        // Return the SeatSelectionView with all required parameters
+        SeatSelectionView(
+            selectedTime: selectedTime,
+            viewController: seatsController,
+            movie: exampleMovie,
+            selectedCinema: selectedCinema
+        )
+    }
 }

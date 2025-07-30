@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct ConfirmViewController{
+class ConfirmViewController : ObservableObject{
     
-    
-    //Ticket object that then gets saved into the ticketArray of TicketViewController
+    @Published var tickets: [Ticket] = []
+
+    func confirmTicket(movie: Movie, date: String, time: String, cinema: String, seat: [Seat]) {
+        let newTicket = Ticket(time: time, cinema: cinema, seat: seat, movie: movie)
+        tickets.append(newTicket)
+        // Additional handling like saving to a database or updating the UI
+    }
     
 }
